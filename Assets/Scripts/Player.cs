@@ -1,11 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {   
+    //캐릭터 움직임 속도
     [SerializeField]
     private float moveSpeed;
+
+    //무기
+    [SerializeField]
+    private GameObject weapon;
+
+    //미사일 발사
+    [SerializeField]
+    private Transform shootTransform;
+
+    //미사일 간격
+    [SerializeField]
+    private float shootInterval = 0.05f;
+    private float lastShotTime = 0f;
+
     // Update is called once per frame
     void Update()
     {   
@@ -33,8 +49,16 @@ public class Player : MonoBehaviour
         transform.position = new Vector3(toX, transform.position.y, transform.position.z);
 
 
+        //탄막 공격
+        Shoot();
+    }
 
-
-
+    //공격 메서드
+    void Shoot() {
+        if (Time.time - lastShotTime > shootInterval) { // Time.time : 게임이 시작된 이후로 현재까지 흐른시간
+            Instantiate(weapon,shootTransform.position, quaternion.identity);
+            lastShotTime = Time.time;
+        }
+        
     }
 }
