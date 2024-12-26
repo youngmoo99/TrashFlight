@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
     //공격 메서드
     void Shoot() {
         if (Time.time - lastShotTime > shootInterval) { // Time.time : 게임이 시작된 이후로 현재까지 흐른시간
+            //Instantiate(어떤객체를, 어떤위치에, 회전을 어떻게해서);
             Instantiate(weapon,shootTransform.position, quaternion.identity);
             lastShotTime = Time.time;
         }
