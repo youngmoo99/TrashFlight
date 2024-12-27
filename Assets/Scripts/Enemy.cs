@@ -7,6 +7,11 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 10f;
     private float minY = -7;
+
+    public void SetMoveSpeed(float moveSpeed) {
+        this.moveSpeed = moveSpeed; // this를 붙일경우 클래스내에 있는 변수 
+        
+    }
     // Update is called once per frame
     void Update()
     {
