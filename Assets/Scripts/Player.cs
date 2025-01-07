@@ -62,4 +62,11 @@ public class Player : MonoBehaviour
         }
         
     }
+    //충돌 메서드 OnTriggerEnter2D 충돌감지  isTirgger 체크 o
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Enemy") {
+            Debug.Log("Game Over");
+            Destroy(gameObject);
+        }
+    }
 }
