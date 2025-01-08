@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {   
+    [SerializeField]
+    private GameObject coin;
+
     [SerializeField]
     private float moveSpeed = 10f;
     private float minY = -7f;
@@ -31,6 +35,8 @@ public class Enemy : MonoBehaviour
             hp -= weapon.damage;
             if (hp <=0) {
                 Destroy(gameObject);
+                //코인생성 
+                Instantiate(coin,transform.position,quaternion.identity);
             }
             Destroy(other.gameObject);
         }
