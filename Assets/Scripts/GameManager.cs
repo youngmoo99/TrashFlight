@@ -22,5 +22,12 @@ public class GameManager : MonoBehaviour
         coin++;
         //코인을 문자열로 변경
         text.SetText(coin.ToString());
+
+        if(coin % 30 == 0) {
+            Player player = FindObjectOfType<Player>();
+            if (player != null) {
+                player.Upgrade();
+            }
+        }
     }
 }

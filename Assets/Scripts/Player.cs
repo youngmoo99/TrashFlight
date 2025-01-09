@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
 
     //무기
     [SerializeField]
-    private GameObject weapon;
+    private GameObject[] weapons;
+    private int weaponIndex = 0;
 
     //미사일 발사
     [SerializeField]
@@ -57,19 +58,26 @@ public class Player : MonoBehaviour
     void Shoot() {
         if (Time.time - lastShotTime > shootInterval) { // Time.time : 게임이 시작된 이후로 현재까지 흐른시간
             //Instantiate(어떤객체를, 어떤위치에, 회전을 어떻게해서);
-            Instantiate(weapon,shootTransform.position, quaternion.identity);
+            Instantiate(weapons[weaponIndex],shootTransform.position, quaternion.identity);
             lastShotTime = Time.time;
         }
         
     }
     //충돌 메서드 OnTriggerEnter2D 충돌감지  isTirgger 체크 o
     private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.tag == "Enemy") {
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag =="Boss") {
             Debug.Log("Game Over");
             Destroy(gameObject);
         } else if(other.gameObject.tag == "Coin") {
             GameManager.instance.IncreaseCoin();
             Destroy(other.gameObject);
+        }
+    }
+
+    public void Upgrade() {
+        weaponIndex++;
+        if (weaponIndex >= weapons.Length) {
+            weaponIndex = weapons.Length -1;
         }
     }
 }

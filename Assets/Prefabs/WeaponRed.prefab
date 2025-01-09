@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4847500603698765068}
   - component: {fileID: -727823834932639962}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: WeaponRed
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1773984518, guid: 16927439d3d4e634e97e1ac6d53260c7, type: 3}
+  m_Sprite: {fileID: 1133885036, guid: 16927439d3d4e634e97e1ac6d53260c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff9cdd049de6754bad3a261fbfb6cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
-  damage: 2
+  moveSpeed: 20
+  damage: 4
 --- !u!58 &-727823834932639962
 CircleCollider2D:
   m_ObjectHideFlags: 0
