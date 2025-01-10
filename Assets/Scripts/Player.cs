@@ -49,9 +49,12 @@ public class Player : MonoBehaviour
         //x값만 변경된 포지션 y z 값은 원래값 그대로 
         transform.position = new Vector3(toX, transform.position.y, transform.position.z);
 
-
-        //탄막 공격
-        Shoot();
+        //게임이 안끝났을때만 공격
+        if(GameManager.instance.isGameOver == false){
+            //탄막 공격
+            Shoot();
+        }
+     
     }
 
     //공격 메서드
@@ -66,7 +69,7 @@ public class Player : MonoBehaviour
     //충돌 메서드 OnTriggerEnter2D 충돌감지  isTirgger 체크 o
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag =="Boss") {
-            Debug.Log("Game Over");
+            GameManager.instance.SetGameOver();
             Destroy(gameObject);
         } else if(other.gameObject.tag == "Coin") {
             GameManager.instance.IncreaseCoin();

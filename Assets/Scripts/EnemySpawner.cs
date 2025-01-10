@@ -23,6 +23,10 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine("EnemyRoutine");
     }
 
+    public void StopEnemyRoutine() {
+        StopCoroutine("EnemyRoutine");
+    }
+
     IEnumerator EnemyRoutine() {
         //3초 지난후에 밑에 반복 실행
         yield return new WaitForSeconds(3f);     
