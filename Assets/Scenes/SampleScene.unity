@@ -1093,7 +1093,7 @@ MonoBehaviour:
   - {fileID: 3810543525871941118, guid: 0364e98106d487b4199040180872a00a, type: 3}
   - {fileID: 3810543525871941118, guid: a7f1803081ce0de44b8d99cd5899d648, type: 3}
   boss: {fileID: 3810543525871941118, guid: aa78adeb1c05cd84f9f86d23990ce4ec, type: 3}
-  spawnInterval: 1.2
+  spawnInterval: 1.5
 --- !u!4 &1164043453
 Transform:
   m_ObjectHideFlags: 0
